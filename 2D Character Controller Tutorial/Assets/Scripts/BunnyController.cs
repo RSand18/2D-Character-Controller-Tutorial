@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BunnyController : MonoBehaviour
 {
-    public float maxspeed = 10f;
+    public float maxSpeed = 10f;
     bool facingRight = true;
 
     Animator anim;
@@ -35,14 +35,13 @@ public class BunnyController : MonoBehaviour
             doubleJump = false;
         }
 
-        anim.SetFloat("vSpeed", rb2d.velocity.y);
-
-
         float move = Input.GetAxis("Horizontal");
+
+        anim.SetFloat("vSpeed", rb2d.velocity.y);
 
         anim.SetFloat("Speed", Mathf.Abs(move));
 
-            rb2d.velocity = new Vector2(move * maxspeed, rb2d.velocity.y);
+            rb2d.velocity = new Vector2(move * maxSpeed, rb2d.velocity.y);
 
         if (move > 0 && !facingRight)
             Flip();
